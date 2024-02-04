@@ -39,6 +39,12 @@ function getcomputerChoice() {
     }
 }
 
+//converts to lowercase first
+//checks the for acceptable values for the user
+    //has the user entered rock, paper, or scissors?
+    //if yes, then nothing happens.
+//otherswise it rejects the input.
+
 //converts a string to lowercase
 function stringLowerCase(a){
     return a = a.toLocaleLowerCase()
