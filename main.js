@@ -37,14 +37,17 @@ function getcomputerChoice() {
     //if compNum = 1
     //return rock
     if (compNum === 1) {
+        alert(`The Computer picked Rock!`)
         return "rock"
     //if compNum = 2
     //return paper
     } else if (compNum === 2) {
+        alert(`The Computer picked Paper!`)
         return "paper"
     //if compNum = 3
     //return scissors
     } else if (compNum === 3) {
+        alert(`The Computer picked Scissors`)
         return "scissors"
     }
 }
