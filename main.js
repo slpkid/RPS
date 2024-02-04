@@ -39,10 +39,19 @@ function getcomputerChoice() {
     }
 }
 
-const playerSelection = "rock" //prompt player for selection.
-    //convert selection to lowercase for case insensitivity
-const computerSelection = getcomputerChoice();
+//converts a string to lowercase
+function stringLowerCase(a){
+    return a = a.toLocaleLowerCase()
+}
+//create playerSelection constant
+//prompt player for selection
 
-console.log(playRound(playerSelection,computerSelection));
+const playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.",""));
+console.log(playerSelection);
+//convert selection to lowercase for case insensitivity
 
-console.log(getcomputerChoice());
+//const computerSelection = getcomputerChoice();
+
+// console.log(playRound(playerSelection,computerSelection));
+
+//console.log(getcomputerChoice());
