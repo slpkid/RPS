@@ -23,12 +23,20 @@ function playRound(playerSelection,computerSelection) {
 function getcomputerChoice() {
     //create variable compNum
     //get random number between 1 and 3
+    let compNum = Math.floor((Math.random() * 3) + 1)
     //if compNum = 1
-        //return rock
+    //return rock
+    if (compNum === 1) {
+        return "rock"
     //if compNum = 2
-        //return paper
+    //return paper
+    } else if (compNum === 2) {
+        return "paper"
     //if compNum = 3
-        //return scissors
+    //return scissors
+    } else if (compNum === 3) {
+        return "scissors"
+    }
 }
 
 const playerSelection = "rock" //prompt player for selection.
@@ -36,3 +44,5 @@ const playerSelection = "rock" //prompt player for selection.
 const computerSelection = getcomputerChoice();
 
 console.log(playRound(playerSelection,computerSelection));
+
+console.log(getcomputerChoice());
