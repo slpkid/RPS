@@ -1,23 +1,33 @@
 function playRound(playerSelection,computerSelection) {
-    //create variable winLose 
-    //check if playerSelection === computerSelection
-        //if yes, the game is tied. 
-        //return "Tie!"
-    //else if player = rock
-        //if computer = paper 
-            //return "You lose"
-            //else
-            //return "You win!"
-    //else if player = scissors
-        //if computer = rock
-            //return "You lose"
-        //else
-        //return "You win!"
-    //else if player = paper
-        //if computer = scissors
-            //return "You lose"
-            //else
-            //return "You win!"
+    let resultRound //create variable to store win, loss, or tie
+    if (playerSelection === computerSelection) { //check if playerSelection === computerSelection. If yes, the game is tied. 
+        alert("Tie!"); //return "Tie!"
+        return resultRound = "tie";
+    } else if (playerSelection === "rock") { //else if player = rock
+        if (computerSelection === "paper") {
+            alert("You lose!")
+            return resultRound = "loss";
+        } else {
+            alert("You win!")
+            return resultRound = "win"
+        }
+    } else if (playerSelection === "scissors") { //else if player = scissors
+        if (computerSelection === "rock") {
+            alert("You lose!")
+            return resultRound = "loss";
+        } else {
+            alert("You win!")
+            return resultRound = "win";
+        }
+    } else if (playerSelection === "paper") { //else if player = paper
+        if (computerSelection === "scissors") {
+            alert("You lose!")
+            return resultRound = "loss";
+        } else {
+            alert("You win!")
+            return resultRound = "win";
+        }
+    }
 }
 
 function getcomputerChoice() {
@@ -39,11 +49,12 @@ function getcomputerChoice() {
     }
 }
 
+//Data validation function:
 //converts to lowercase first
 //checks the for acceptable values for the user
     //has the user entered rock, paper, or scissors?
     //if yes, then nothing happens.
-//otherswise it rejects the input.
+//otherwise it rejects the input.
 
 //converts a string to lowercase
 function stringLowerCase(a){
@@ -53,11 +64,8 @@ function stringLowerCase(a){
 //prompt player for selection
 
 const playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.",""));
-console.log(playerSelection);
-//convert selection to lowercase for case insensitivity
+const computerSelection = getcomputerChoice();
 
-//const computerSelection = getcomputerChoice();
-
-// console.log(playRound(playerSelection,computerSelection));
+console.log(playRound(playerSelection,computerSelection));
 
 //console.log(getcomputerChoice());
