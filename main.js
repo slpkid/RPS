@@ -52,6 +52,14 @@ function getcomputerChoice() {
     }
 }
 
+function playGame() {
+    //create variable for playerScore
+    //create variable for combuterScore
+    //run playRound 5 times lmao
+    //run a comparison between playerScore and combuterScore
+    //==> higher score wins. alert if player has won or lost (tieing is not possible)
+}
+
 //Data validation function:
 //converts to lowercase first
 //checks the for acceptable values for the user
