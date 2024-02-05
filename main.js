@@ -1,4 +1,6 @@
 function playRound(playerSelection,computerSelection) {
+    playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.","")); 
+    computerSelection = getcomputerChoice(); 
     let resultRound //create variable to store win, loss, or tie
     if (playerSelection === computerSelection) { //check if playerSelection === computerSelection. If yes, the game is tied. 
         alert("Tie!"); //return "Tie!"
@@ -58,11 +60,18 @@ function getcomputerChoice() {
     }
 }
 
+let playerSelection
+let computerSelection
+//create variable for playerScore
+let playerScore = 0
+//create variable for combuterScore
+let computerScore = 0
+
 function playGame() {
-    //create variable for playerScore
-    let playerScore
-    //create variable for combuterScore
-    let computerScore
+    playerScore = 0
+    computerScore = 0
+    //create variable for gameWinLoss
+    //let gameWinLoss
     //run playRound 5 times lmao
     console.log(playRound(playerSelection,computerSelection));
     console.log(playRound(playerSelection,computerSelection));
@@ -70,14 +79,18 @@ function playGame() {
     console.log(playRound(playerSelection,computerSelection));
     console.log(playRound(playerSelection,computerSelection));
     //run a comparison between playerScore and combuterScore
+    //==> higher score wins. alert if player has won or lost or tied
+
     if (playerScore > computerScore) {
         alert("You beat the computer!")
+        //return gameWinLoss = "Game win!"
     } else if (playerScore < computerScore) {
         alert ("You lost to the computer!")
-    } else {
-        alert ("Tie!")
+       // return gameWinLoss = "Game loss!"
+    } else if (playerScore === computerScore) {
+        alert ("You tied the computer!") 
+     //   return gameWinLoss = "Game tied!"
     }
-    //==> higher score wins. alert if player has won or lost (tieing is not possible)
 }
 
 //Data validation function:
@@ -94,7 +107,7 @@ function stringLowerCase(a){
 //create playerSelection constant
 //prompt player for selection
 
-const playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.","")); // need to move this to the playround func...
-const computerSelection = getcomputerChoice(); // need to move this to playRound func
+
 
 //console.log(playRound(playerSelection,computerSelection));
+playGame();
