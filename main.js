@@ -6,25 +6,31 @@ function playRound(playerSelection,computerSelection) {
     } else if (playerSelection === "rock") { //else if player = rock
         if (computerSelection === "paper") {
             alert("You lose!")
+            computerScore++;
             return resultRound = "loss";
         } else {
             alert("You win!")
+            playerScore++;
             return resultRound = "win"
         }
     } else if (playerSelection === "scissors") { //else if player = scissors
         if (computerSelection === "rock") {
             alert("You lose!")
+            computerScore++;
             return resultRound = "loss";
         } else {
             alert("You win!")
+            playerScore++;
             return resultRound = "win";
         }
     } else if (playerSelection === "paper") { //else if player = paper
         if (computerSelection === "scissors") {
             alert("You lose!")
+            computerScore++;
             return resultRound = "loss";
         } else {
             alert("You win!")
+            playerScore++;
             return resultRound = "win";
         }
     }
@@ -54,9 +60,23 @@ function getcomputerChoice() {
 
 function playGame() {
     //create variable for playerScore
+    let playerScore
     //create variable for combuterScore
+    let computerScore
     //run playRound 5 times lmao
+    console.log(playRound(playerSelection,computerSelection));
+    console.log(playRound(playerSelection,computerSelection));
+    console.log(playRound(playerSelection,computerSelection));
+    console.log(playRound(playerSelection,computerSelection));
+    console.log(playRound(playerSelection,computerSelection));
     //run a comparison between playerScore and combuterScore
+    if (playerScore > computerScore) {
+        alert("You beat the computer!")
+    } else if (playerScore < computerScore) {
+        alert ("You lost to the computer!")
+    } else {
+        alert ("Tie!")
+    }
     //==> higher score wins. alert if player has won or lost (tieing is not possible)
 }
 
@@ -74,9 +94,7 @@ function stringLowerCase(a){
 //create playerSelection constant
 //prompt player for selection
 
-const playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.",""));
-const computerSelection = getcomputerChoice();
+const playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.","")); // need to move this to the playround func...
+const computerSelection = getcomputerChoice(); // need to move this to playRound func
 
-console.log(playRound(playerSelection,computerSelection));
-
-//console.log(getcomputerChoice());
+//console.log(playRound(playerSelection,computerSelection));
