@@ -1,13 +1,19 @@
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-const buttons = document.querySelectorAll('button');
-
+const buttons = document.querySelectorAll('.btn-select');
+const clearButton = document.querySelector('#clear-btn')
 
 const pScore = document.querySelector('#player-score');
 const compScore = document.querySelector('#computer-score');
 
 const messageLog = document.querySelector('#message-log');
+
+clearButton.addEventListener('click',() =>  {
+    while (messageLog.firstChild) {
+        messageLog.removeChild(messageLog.firstChild)
+    }
+})
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -16,6 +22,7 @@ buttons.forEach((button) => {
         messageLog.appendChild(message);
     })
 })
+
 
 // function playRound(playerSelection,computerSelection) {
 //     playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.","")); 
