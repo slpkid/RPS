@@ -8,7 +8,13 @@ const clearButton = document.querySelector('#clear-btn');
 let pScore = 0;
 let compScore = 0;
 
+let pScoreCounter = document.querySelector('#player-score');
+let compScoreCounter = document.querySelector('#computer-score');
+
 const messageLog = document.querySelector('#message-log');
+
+let playerSelection
+let computerSelection
 
 // Lets the player clear the message log if it gets too cluttered
 clearButton.addEventListener('click',() =>  {
@@ -43,11 +49,16 @@ function logMessage(text,vary) {
     messageLog.appendChild(message);
 }
 
+function updateScore() {
+    pScoreCounter.textContent = pScore;
+    compScoreCounter.textContent = compScore;
+}
+
+
 function playRound(playerSelection,computerSelection) {
     computerSelection = getcomputerChoice();
     if (playerSelection === computerSelection) {
         logMessage("Tie!");
-        return;
     } else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
             compScore++;
@@ -73,6 +84,7 @@ function playRound(playerSelection,computerSelection) {
             logMessage("Player Wins!","")
         }
     }
+    updateScore();
 }
 
 
@@ -137,8 +149,7 @@ function getcomputerChoice() {
     }
 }
 
-let playerSelection
-let computerSelection
+
 
 // function playGame() {
 //     pScore = 0
