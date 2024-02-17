@@ -20,10 +20,18 @@ clearButton.addEventListener('click',() =>  {
 //When a choice button is clicked, loops through to find which button was clicked.
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        logMessage("Player picked ",button.id);
+        pChoiceMessage(button.id);
         // playRound(playerSelection,computerSelection);
     })
 })
+
+function pChoiceMessage(choice) {
+    logMessage("Player picked ",choice)
+}
+
+function compChoiceMessage(choice) {
+    logMessage("The Computer picked ",choice)
+}
 
 function logMessage(text,vary) {
     const message = document.createElement("p");
