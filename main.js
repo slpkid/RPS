@@ -36,7 +36,7 @@ function compChoiceMessage(choice) {
 
 function logMessage(text,vary) {
     const message = document.createElement("p");
-    if (vary == undefind) {
+    if (vary == undefined) {
         vary = "";
     }
     message.textContent = `${text}${vary}`
