@@ -62,35 +62,44 @@ function playRound(playerSelection,computerSelection) {
     } else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
             compScore++;
-            logMessage("Player Loses!","")
+            logMessage("Round lost!","")
         } else {
             pScore++;
-            logMessage("Player Wins!","")
+            logMessage("Round won!","")
         }
     } else if (playerSelection === "paper") {
         if (computerSelection === "scissors") {
             compScore++;
-            logMessage("Player Loses!","")
+            logMessage("Round lost!","")
         } else {
             pScore++;
-            logMessage("Player Wins!","")
+            logMessage("Round won!","")
         }
     } else if (playerSelection === "scissors") {
         if (computerSelection === "rock") {
             compScore++;
-            logMessage("Player Loses!","")
+            logMessage("Round lost!","")
         } else {
             pScore++;
-            logMessage("Player Wins!","")
+            logMessage("Round won!","")
         }
     }
     updateScore();
+    winner();
+}
+
+function winner() {
+    if (pScore === 5) {
+        logMessage("Good job, Guy! You beat the computer!")
+    } else if (compScore === 5) {
+        logMessage("Nice try, Guy. But you'll have to do better than that!")
+    }
 }
 
 
 // function playRound(playerSelection,computerSelection) { 
 //     computerSelection = getcomputerChoice(); 
-//     let resultRound //create variable to store win, loss, or tie
+//     let resultRound //create variable to store won, loss, or tie
 //     if (playerSelection === computerSelection) { //check if playerSelection === computerSelection. If yes, the game is tied. 
 //         alert("Tie!"); //return "Tie!"
 //         return resultRound = "tie";
@@ -100,9 +109,9 @@ function playRound(playerSelection,computerSelection) {
 //             compScore++;
 //             return resultRound = "loss";
 //         } else {
-//             alert("You win!")
+//             alert("You won!")
 //             pScore++;
-//             return resultRound = "win"
+//             return resultRound = "won"
 //         }
 //     } else if (playerSelection === "scissors") { //else if player = scissors
 //         if (computerSelection === "rock") {
@@ -110,9 +119,9 @@ function playRound(playerSelection,computerSelection) {
 //             compScore++;
 //             return resultRound = "loss";
 //         } else {
-//             alert("You win!")
+//             alert("You won!")
 //             pScore++;
-//             return resultRound = "win";
+//             return resultRound = "won";
 //         }
 //     } else if (playerSelection === "paper") { //else if player = paper
 //         if (computerSelection === "scissors") {
@@ -120,9 +129,9 @@ function playRound(playerSelection,computerSelection) {
 //             compScore++;
 //             return resultRound = "loss";
 //         } else {
-//             alert("You win!")
+//             alert("You won!")
 //             pScore++;
-//             return resultRound = "win";
+//             return resultRound = "won";
 //         }
 //     }
 // }
@@ -154,8 +163,8 @@ function getcomputerChoice() {
 // function playGame() {
 //     pScore = 0
 //     compScore = 0
-//     //create variable for gameWinLoss
-//     //let gameWinLoss
+//     //create variable for gamewonLoss
+//     //let gamewonLoss
 //     //run playRound 5 times lmao
 //     console.log(playRound(playerSelection,computerSelection));
 //     console.log(playRound(playerSelection,computerSelection));
@@ -163,17 +172,17 @@ function getcomputerChoice() {
 //     console.log(playRound(playerSelection,computerSelection));
 //     console.log(playRound(playerSelection,computerSelection));
 //     //run a comparison between pScore and combuterScore
-//     //==> higher score wins. alert if player has won or lost or tied
+//     //==> higher score wons. alert if player has won or lost or tied
 
 //     if (pScore > compScore) {
 //         alert("You beat the computer!")
-//         //return gameWinLoss = "Game win!"
+//         //return gamewonLoss = "Game won!"
 //     } else if (pScore < compScore) {
 //         alert ("You lost to the computer!")
-//        // return gameWinLoss = "Game loss!"
+//        // return gamewonLoss = "Game loss!"
 //     } else if (pScore === compScore) {
 //         alert ("You tied the computer!") 
-//      //   return gameWinLoss = "Game tied!"
+//      //   return gamewonLoss = "Game tied!"
 //     }
 // }
 
