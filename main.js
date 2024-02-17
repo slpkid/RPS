@@ -2,100 +2,103 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const buttons = document.querySelectorAll('.btn-select');
+
 const clearButton = document.querySelector('#clear-btn')
 
-const pScore = document.querySelector('#player-score');
-const compScore = document.querySelector('#computer-score');
+let pScore = document.querySelector('#player-score');
+let compScore = document.querySelector('#computer-score');
 
 const messageLog = document.querySelector('#message-log');
 
+// Lets the player clear the message log if it gets too cluttered
 clearButton.addEventListener('click',() =>  {
     while (messageLog.firstChild) {
-        messageLog.removeChild(messageLog.firstChild)
+        messageLog.removeChild(messageLog.firstChild);
     }
 })
 
+//When a choice button is clicked, loops through to find which button was clicked.
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        const message = document.createElement("p");
-        message.textContent = `Player picked ${button.id}!`
-        messageLog.appendChild(message);
+        logMessage("Player picked ",button.id);
+        // playRound(playerSelection,computerSelection);
     })
 })
 
+function logMessage(text,vary) {
+    const message = document.createElement("p");
+    message.textContent = `${text} ${vary}.`
+    messageLog.appendChild(message);
+}
 
-// function playRound(playerSelection,computerSelection) {
-//     playerSelection = stringLowerCase(prompt("Choose either Rock, Paper, or Scissors.","")); 
-//     computerSelection = getcomputerChoice(); 
-//     let resultRound //create variable to store win, loss, or tie
-//     if (playerSelection === computerSelection) { //check if playerSelection === computerSelection. If yes, the game is tied. 
-//         alert("Tie!"); //return "Tie!"
-//         return resultRound = "tie";
-//     } else if (playerSelection === "rock") { //else if player = rock
-//         if (computerSelection === "paper") {
-//             alert("You lose!")
-//             computerScore++;
-//             return resultRound = "loss";
-//         } else {
-//             alert("You win!")
-//             playerScore++;
-//             return resultRound = "win"
-//         }
-//     } else if (playerSelection === "scissors") { //else if player = scissors
-//         if (computerSelection === "rock") {
-//             alert("You lose!")
-//             computerScore++;
-//             return resultRound = "loss";
-//         } else {
-//             alert("You win!")
-//             playerScore++;
-//             return resultRound = "win";
-//         }
-//     } else if (playerSelection === "paper") { //else if player = paper
-//         if (computerSelection === "scissors") {
-//             alert("You lose!")
-//             computerScore++;
-//             return resultRound = "loss";
-//         } else {
-//             alert("You win!")
-//             playerScore++;
-//             return resultRound = "win";
-//         }
-//     }
-// }
 
-// function getcomputerChoice() {
-//     //create variable compNum
-//     //get random number between 1 and 3
-//     let compNum = Math.floor((Math.random() * 3) + 1)
-//     //if compNum = 1
-//     //return rock
-//     if (compNum === 1) {
-//         alert(`The Computer picked Rock!`)
-//         return "rock"
-//     //if compNum = 2
-//     //return paper
-//     } else if (compNum === 2) {
-//         alert(`The Computer picked Paper!`)
-//         return "paper"
-//     //if compNum = 3
-//     //return scissors
-//     } else if (compNum === 3) {
-//         alert(`The Computer picked Scissors`)
-//         return "scissors"
-//     }
-// }
+function playRound(playerSelection,computerSelection) { 
+    computerSelection = getcomputerChoice(); 
+    let resultRound //create variable to store win, loss, or tie
+    if (playerSelection === computerSelection) { //check if playerSelection === computerSelection. If yes, the game is tied. 
+        alert("Tie!"); //return "Tie!"
+        return resultRound = "tie";
+    } else if (playerSelection === "rock") { //else if player = rock
+        if (computerSelection === "paper") {
+            alert("You lose!")
+            compScore++;
+            return resultRound = "loss";
+        } else {
+            alert("You win!")
+            pScore++;
+            return resultRound = "win"
+        }
+    } else if (playerSelection === "scissors") { //else if player = scissors
+        if (computerSelection === "rock") {
+            alert("You lose!")
+            compScore++;
+            return resultRound = "loss";
+        } else {
+            alert("You win!")
+            pScore++;
+            return resultRound = "win";
+        }
+    } else if (playerSelection === "paper") { //else if player = paper
+        if (computerSelection === "scissors") {
+            alert("You lose!")
+            compScore++;
+            return resultRound = "loss";
+        } else {
+            alert("You win!")
+            pScore++;
+            return resultRound = "win";
+        }
+    }
+}
 
-// let playerSelection
-// let computerSelection
-// //create variable for playerScore
-// let playerScore = 0
-// //create variable for combuterScore
-// let computerScore = 0
+function getcomputerChoice() {
+    //create variable compNum
+    //get random number between 1 and 3
+    let compNum = Math.floor((Math.random() * 3) + 1)
+    //if compNum = 1
+    //return rock
+    if (compNum === 1) {
+        alert(`The Computer picked Rock!`)
+        return "rock"
+    //if compNum = 2
+    //return paper
+    } else if (compNum === 2) {
+        alert(`The Computer picked Paper!`)
+        return "paper"
+    //if compNum = 3
+    //return scissors
+    } else if (compNum === 3) {
+        alert(`The Computer picked Scissors`)
+        return "scissors"
+    }
+}
+
+let playerSelection
+let computerSelection
 
 // function playGame() {
-//     playerScore = 0
-//     computerScore = 0
+//     pScore = 0
+//     compScore = 0
 //     //create variable for gameWinLoss
 //     //let gameWinLoss
 //     //run playRound 5 times lmao
@@ -104,16 +107,16 @@ buttons.forEach((button) => {
 //     console.log(playRound(playerSelection,computerSelection));
 //     console.log(playRound(playerSelection,computerSelection));
 //     console.log(playRound(playerSelection,computerSelection));
-//     //run a comparison between playerScore and combuterScore
+//     //run a comparison between pScore and combuterScore
 //     //==> higher score wins. alert if player has won or lost or tied
 
-//     if (playerScore > computerScore) {
+//     if (pScore > compScore) {
 //         alert("You beat the computer!")
 //         //return gameWinLoss = "Game win!"
-//     } else if (playerScore < computerScore) {
+//     } else if (pScore < compScore) {
 //         alert ("You lost to the computer!")
 //        // return gameWinLoss = "Game loss!"
-//     } else if (playerScore === computerScore) {
+//     } else if (pScore === compScore) {
 //         alert ("You tied the computer!") 
 //      //   return gameWinLoss = "Game tied!"
 //     }
