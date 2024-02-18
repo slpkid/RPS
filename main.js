@@ -4,14 +4,15 @@ const scissors = document.querySelector('#scissors');
 const buttons = document.querySelectorAll('.btn-select');
 
 const clearButton = document.querySelector('#clear-btn');
+const newGameButton = document.querySelector('#new-game-btn')
+
+const messageLog = document.querySelector('#message-log');
 
 let pScore = 0;
 let compScore = 0;
 
 let pScoreCounter = document.querySelector('#player-score');
 let compScoreCounter = document.querySelector('#computer-score');
-
-const messageLog = document.querySelector('#message-log');
 
 let playerSelection
 let computerSelection
@@ -102,6 +103,11 @@ function winner() {
     }
 }
 
+function newGame() {
+    pScore = 0;
+    compScore = 0;
+    updateScore();
+}
 
 
 // function playRound(playerSelection,computerSelection) { 
