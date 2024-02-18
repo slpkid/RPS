@@ -3,6 +3,9 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const buttons = document.querySelectorAll('.btn-select');
 
+const pChoice = document.querySelector('#player-choice')
+const compChoice = document.querySelector('#computer-choice')
+
 const clearButton = document.querySelector('#clear-btn');
 const newGameButton = document.querySelector('#new-game-btn')
 
@@ -29,9 +32,9 @@ newGameButton.addEventListener('click', () => newGame())
 //When a choice button is clicked, loops through to find which button was clicked.
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        pChoiceMessage(button.id);
         playerSelection = button.id;
-       playRound(playerSelection,computerSelection);
+        pChoice.textContent = playerSelection;
+        playRound(playerSelection,computerSelection);
     })
 })
 
@@ -60,6 +63,7 @@ function updateScore() {
 
 function playRound(playerSelection,computerSelection) {
     computerSelection = getcomputerChoice();
+    compChoice.textContent = computerSelection;
     if (playerSelection === computerSelection) {
         logMessage("Tie!");
     } else if (playerSelection === "rock") {
@@ -125,17 +129,14 @@ function getcomputerChoice() {
     //if compNum = 1
     //return rock
     if (compNum === 1) {
-        compChoiceMessage("rock")
         return "rock"
     //if compNum = 2
     //return paper
     } else if (compNum === 2) {
-        compChoiceMessage("paper")
         return "paper"
     //if compNum = 3
     //return scissors
     } else if (compNum === 3) {
-        compChoiceMessage("scissors")
         return "scissors"
     }
 }
