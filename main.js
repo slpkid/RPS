@@ -24,6 +24,8 @@ clearButton.addEventListener('click',() =>  {
     }
 })
 
+newGameButton.addEventListener('click', () => newGame())
+
 //When a choice button is clicked, loops through to find which button was clicked.
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -104,9 +106,16 @@ function winner() {
 }
 
 function newGame() {
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
     pScore = 0;
     compScore = 0;
     updateScore();
+    while (messageLog.firstChild) {
+        messageLog.removeChild(messageLog.firstChild);
+    }
+    logMessage("New Game Started.")
 }
 
 
