@@ -91,10 +91,17 @@ function playRound(playerSelection,computerSelection) {
 function winner() {
     if (pScore === 5) {
         logMessage("Good job, Guy! You beat the computer!")
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
     } else if (compScore === 5) {
         logMessage("Nice try, Guy. But you'll have to do better than that!")
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
     }
 }
+
 
 
 // function playRound(playerSelection,computerSelection) { 
